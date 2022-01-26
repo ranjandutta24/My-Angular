@@ -1,0 +1,36 @@
+<h1>{{title}}</h1>
+<h2>Survice</h2>
+
+ <ul>
+    <li *ngFor="let course of courses">
+            {{course}}
+     </li>
+ </ul>
+
+
+ <!-- Property Binding -->
+ <h2>Property Binding(image)</h2>
+<img [src] = "imageUrl " alt="image"/>
+
+
+<button class='btn' [class.active]='isActive'>Save</button>
+<button [style.backgroundColor]="isActive ? 'red' : 'blue' " (click)="change()">{{title1}}</button>
+<button (click)="action()">Click</button>
+<!-- Two way buinding -->
+<h2>Two way buinding</h2>
+<h4>Email: {{email}}</h4>
+<input [(ngModel)]="email" (keyup.enter)="onKeyUp()" placeholder="Email" />
+<br/>
+<!-- Built in pipes -->
+<h2>Built in pipes</h2>
+{{course.title |uppercase}}<br/>
+{{course.students |number}}<br/>
+{{course.rating |number:'1.1-2'}}<br/>
+{{course.price |currency:'INR':true}}<br/>
+{{course.releasDate | date:'shortDate'}}<br/>
+<h2>Custom Pipe</h2>
+<h3>text summary with argument of latter limit</h3>
+<h4>actual text:</h4>
+<p>{{course.describtion}}</p>
+<h4>text with summary pipe:</h4>
+{{course.describtion | summary:10}}
