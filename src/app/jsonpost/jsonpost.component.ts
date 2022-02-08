@@ -19,23 +19,27 @@ export class JsonpostComponent implements OnInit {
         {name:"regs",mail:"cosgan@gmail.com",age:47}
     ];
     
-
+    
     
 
 
-    convertJsonToExcel(){
+    // convertJsonToExcel(){
         
-        const workSheet=XLSX.utils.json_to_sheet(this.maindata);
-        const workBook=XLSX.utils.book_new();
+    //     const workSheet=XLSX.utils.json_to_sheet(this.maindata);
+    //     const workBook=XLSX.utils.book_new();
     
-        XLSX.utils.book_append_sheet(workBook,workSheet,"My_Sheet")
-        //    Buffer for huge data
-        XLSX.write(workBook,{bookType:'xlsx',type:"buffer"})
-        //  BS
-        XLSX.write(workBook,{bookType:"xlsx",type:"binary"})
-        XLSX.writeFile(workBook,"posts.xlsx")
+    //     XLSX.utils.book_append_sheet(workBook,workSheet,"My_Sheet")
+    //     //    Buffer for huge data
+    //     XLSX.write(workBook,{bookType:'xlsx',type:"buffer"})
+    //     //  BS
+    //     XLSX.write(workBook,{bookType:"xlsx",type:"binary"})
+    //     XLSX.writeFile(workBook,"posts.xlsx")
+    // }
+    
+    downloadExcel(){
+        this.service.convertJsonToExcel(this.posts)
     }
-    
+
 
   constructor(private service:JsonPlaceholderService ) { 
     //   this.posts = new Array<any>()
@@ -48,16 +52,23 @@ export class JsonpostComponent implements OnInit {
 //       })
 //   }
 
+
   ngOnInit(): void {
     this.service.getPosts()
         .subscribe((data)=>{
         console.log(typeof this.fake)
         this.posts = JSON.parse(JSON.stringify(data)) 
-        this.maindata=data
-      })
-
+        // this.maindata=data
+        
+    })
+    
+    
+        
+        
+    
       
   }
+
 
   createPost(input:HTMLInputElement){
     let post:any={title: input.value};
