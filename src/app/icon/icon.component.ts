@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-icon',
@@ -12,8 +12,6 @@ export class IconComponent implements OnInit {
 
     onClick(){
         this.active = !this.active;
-        
-        
         if (this.state==='off'){
             this.state= 'on'
         }

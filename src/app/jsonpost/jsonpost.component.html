@@ -1,0 +1,19 @@
+<p>jsonpost works!</p>
+<!-- <button (click)="getDataFromAPI()">Get Data</button> -->
+<input
+(keyup.enter)="createPost(title)" #title
+type="text" class="form-control">
+
+
+<button (click)="convertJsonToExcel()">download</button>
+
+
+
+<ul>
+    <li *ngFor="let post of posts">
+        id:  {{post.id}}<br/>
+        title:  {{post.title}}
+
+    </li>
+      
+</ul>

@@ -1,0 +1,6 @@
+<button 
+class="btn"
+[class.btn-primary]= "isFavorite"
+[class.btn-danger]="!isFavorite" (click)="onClick()">{{state}}
+
+</button>

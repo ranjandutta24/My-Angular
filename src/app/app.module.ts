@@ -9,6 +9,12 @@ import { CourserService } from './courses.service';
 import { FormsModule } from '@angular/forms';
 import { SummaryPipe } from './summary.pipe';
 import { IconComponent } from './icon/icon.component';
+import { FavoriteComponent } from './favorite/favorite.component';
+import { BootstrapPanelComponent } from './bootstrap-panel/bootstrap-panel.component';
+import { LikeComponent } from './like/like.component';
+import { PostComponent } from './post/post.component';
+import { HttpClientModule } from '@angular/common/http';
+import { JsonpostComponent } from './jsonpost/jsonpost.component';
 
 @NgModule({
   declarations: [
@@ -16,12 +22,20 @@ import { IconComponent } from './icon/icon.component';
     CoursesComponent,
     CourseComponent,
     SummaryPipe,
-    IconComponent
+    IconComponent,
+    FavoriteComponent,
+    BootstrapPanelComponent,
+    LikeComponent,
+    PostComponent,
+    JsonpostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
+
+    
   ],
   providers: [
       CourserService
